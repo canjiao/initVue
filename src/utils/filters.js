@@ -1,3 +1,7 @@
+/**
+ * 全局过滤器 
+ */
+
 import utilsFn from '@/utils/utilsFn'
 
 //格式化金额

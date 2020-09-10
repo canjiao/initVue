@@ -15,6 +15,9 @@ Vue.prototype.$storage = storage;
 import * as filters from '@/utils/filters';
 Object.keys(filters).forEach(key => { Vue.filter(key, filters[key]); });
 
+import * as directives from '@/utils/directive';
+Object.keys(directives).forEach(key => { Vue.directive(key, directives[key]); });
+
 import api from '@/api';
 Vue.prototype.$api = api;
 

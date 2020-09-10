@@ -15,7 +15,12 @@
 <script>
 import config from '@/utils/config'
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return {
+      config,
+    }
+  }
 }
 </script>
 
