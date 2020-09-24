@@ -493,5 +493,37 @@ let Utils = {
         }
         return s.join(dec);
     },
+
+
+    /**
+     * 将数据中数据值为null或者""的字段全部替换为其他字段 如 '--'
+     * @param {要检测的数据} initialData 
+     * @param {输出的值} initialStr 
+     */
+    formatNullFieldData(initialData,initialStr=''){
+        const isEmpty = val => {
+            // null、字符串为空（注意存在数值为0时），带空格字符串，后台处理成的'-'
+            if (!String(val) || String(val) === 'null' || !String(val).replace(/\s+/g, '')) {
+                return initialStr
+            }
+            return val
+        }
+       
+        if (initialData instanceof Array) {
+            // 当数据为数组时
+            initialData.forEach((val, key, array) => {
+                array[key] = formatNullFieldData(val)
+            })
+        } else if (initialData instanceof Object) {
+            // 当数据为对象时
+            for (let pro in initialData) {
+                initialData[pro] = formatNullFieldData(initialData[pro])
+            }
+        } else {
+            // 当数据为基础类型时
+            initialData = isEmpty(initialData)
+        }
+        return initialData
+    },
 }
 export default Utils;
