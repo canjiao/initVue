@@ -12,6 +12,7 @@
         </button>
         <img id="qrcode" src=""></img>
         <UEditor :content.sync="content"></UEditor>
+        <UploadSingle :url.sync="val"></UploadSingle>
     </div>
 </template>
 
@@ -21,6 +22,7 @@ import Print from '@/components/Print/Print';
 import DomToImage from '@/components/DomToImage/DomToImage'
 import ScaleImg from '@/components/ScaleImg.vue/ScaleImg'
 import UEditor from "@/components/UEditor/UEditor.vue";
+import UploadSingle from "@/components/UploadPic/UploadSingle";
 
 import QRCode from "qrcode";
 export default {
@@ -37,7 +39,8 @@ export default {
         Print,
         DomToImage,
         ScaleImg,
-        UEditor
+        UEditor,
+        UploadSingle
     },
     filters: {},
     watch: {},

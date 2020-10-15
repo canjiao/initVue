@@ -10,23 +10,24 @@
         >
         </vue-ueditor-wrap>
         <Modal v-model="show" title="上传图片" @on-ok="insertPicToEditor">
-            <UploadSingle
-                ref="uploadsingle"
+            <upload-list
+                ref="uploadList"
                 :list.sync="imagesList"
                 :maxTimes="10"
-            ></UploadSingle>
+                showViewer
+            ></upload-list>
         </Modal>
     </div>
 </template>
 <script>
 import VueUeditorWrap from "vue-ueditor-wrap";
-import UploadSingle from "../UploadPic/UploadSingle";
+import UploadList from "../UploadPic/UploadList";
 import Config from "@/utils/config.js";
 export default {
     name: "UEditor",
     components: {
         VueUeditorWrap,
-        UploadSingle,
+        UploadList,
     },
     props: {
         //编辑的内容
@@ -105,7 +106,7 @@ export default {
         initEditor(editorId) {
 			let ueObj = this.$refs.ueditor;
             window.UE.registerUI(
-                "UploadSingle",
+                "UploadList",
                 (editor, uiName) => {
                     return new window.UE.ui.Button({
                         index: 2,
