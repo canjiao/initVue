@@ -8,7 +8,8 @@
 let config = {}; 
 let config_dif = {};
 
-let config_com = {          
+let config_com = {   
+    staticDir: '/static',     
     projectType:'web'
 };
 switch (process.env.NODE_ENV) {

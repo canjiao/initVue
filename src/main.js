@@ -4,10 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import {router} from './router/index'
 import store from './store'
-// 3.4.2 iView版本
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
-Vue.use(iView);
+
+//第三方扩展插件
+import extendsPlug from '@/utils/extends-plug/index'
+extendsPlug.forEach(plug=>{ Vue.use(plug) });
 
 import * as storage from '@/utils/storage'
 Vue.prototype.$storage = storage;
