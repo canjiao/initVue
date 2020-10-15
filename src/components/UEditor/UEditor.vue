@@ -63,7 +63,7 @@ export default {
             //编辑器配置
             config: {
                 zIndex: 800,
-                //资源文件的存放路径，如果使用的是 vue-cli 生成的项目，通常不需要设置该选项，
+                //资源文件的存放路径，如果使用的是 vue-cli 3.0 生成的项目，通常不需要设置该选项，
                 UEDITOR_HOME_URL: Config.staticDir + "/UEditor/",
                 serverUrl: "",
                 toolbars: [

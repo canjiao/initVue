@@ -69,6 +69,7 @@ export default {
         this.$api.common.login({phone:'123'})
         this.$storage.Cookie.set('name','liucan')
         this.$store.dispatch("SetUserInfo", {name:'liucan'});
+        this.content = '<p>abc</p><p><strong>fdhjfksdhfjds</strong></p>'
     },
 }
 </script>
