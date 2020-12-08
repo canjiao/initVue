@@ -13,6 +13,7 @@
         <img id="qrcode" src=""></img>
         <UEditor :content.sync="content"></UEditor>
         <UploadSingle :url.sync="val"></UploadSingle>
+        <p v-ellipsis.title.always="2" style="width:200px;">大家快点哈记得哈的骄傲快点哈健康的大厦健康的大家快点哈记得哈的骄傲快点哈健康的大厦健康的</p>
     </div>
 </template>
 

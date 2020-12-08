@@ -98,3 +98,34 @@ export const fixed = {
     }
 }
 
+// 文本溢出显示省略号  v-ellipsis.title.always="1"
+export const ellipsis = {
+    bind(el, {value = 1, modifiers : {title, always}}, vnode){
+        if (value == 1) { // 单行省略
+            Object.assign(el.style, {
+                whiteSpace   : 'nowrap',
+                overflow     : 'hidden',
+                textOverflow : 'ellipsis',
+            });
+        } else {  // 多行省略
+            Object.assign(el.style, {
+                display         : '-webkit-box',
+                overflow        : 'hidden',
+                wordBreak       : 'break-all',
+                webkitBoxOrient : 'vertical',
+                webkitLineClamp : value,
+            });
+        }
+        // 将文本内容加到title属性。使用 nextTick 或在 componentUpdated 函数中更新el
+        if (title) {
+            vnode.context.$nextTick(() => {
+                if (always) { // 始终加入title
+                    el.title = el.innerText;
+                } else {  // 超出再加入title
+                    const showTitle = value == 1 ? el.scrollWidth > el.clientWidth : el.scrollHeight > el.clientHeight;
+                    showTitle ? el.title = el.innerText: el.removeAttribute('title');
+                }
+            });
+        }
+    }
+}
